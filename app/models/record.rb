@@ -12,11 +12,11 @@ class Record < ApplicationRecord
     def amount_label
       case amount
       when AMOUNTS[:small]
-        '食べていないに等しい'
+        "食べていないに等しい"
       when AMOUNTS[:medium]
-        '普通'
+        "普通"
       when AMOUNTS[:large]
-        '食べ過ぎ'
+        "食べ過ぎ"
       end
     end
 
@@ -24,15 +24,15 @@ class Record < ApplicationRecord
     def amount_class
       case amount
       when AMOUNTS[:small]
-        'amount-small'
+        "amount-small"
       when AMOUNTS[:medium]
-        'amount-medium'
+        "amount-medium"
       when AMOUNTS[:large]
-        'amount-large'
+        "amount-large"
       end
-    end    
+    end
 
     validates :date, presence: true
     validates :snack_name, presence: true
-    validates :amount, presence: true, inclusion:{ in: AMOUNTS.values }
+    validates :amount, presence: true, inclusion: { in: AMOUNTS.values }
 end
