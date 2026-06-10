@@ -1,0 +1,20 @@
+<header class="bg-white shadow">
+   <nav class="container mx-auto px-4 py-4">
+    <div class="flex justify-between items-center">
+     <h1 class="text-2xl font-bold text-gray-800">
+      <%= link_to "お菓子カレンダー", root_path, class: "hover:text-blue-600" %>
+     </h1>
+
+     <div class="flex gap-4 items-center">
+      <% if logged_in? %>
+       <%= link_to "カレンダー", calendar_records_path, class: "text-green-700 hover:text-green-800" %>
+       <%= link_to "記録一覧", records_path, class: "text-gray-700 hover:text-black" %>
+       <%= link_to "新規記録", new_record_path, class: "text-orange-700 hover:text-orange-800" %>
+       <%= button_to "ログアウト", logout_path, method: :delete, class: "bg-red-400 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-200" %>
+      <% else %>
+       <%= link_to "新規登録", signup_path, class: "bg-orange-400 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-200" %>
+      <% end %>
+     </div>
+    </div>
+  </nav>
+</header>

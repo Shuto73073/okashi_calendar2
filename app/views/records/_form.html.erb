@@ -1,0 +1,46 @@
+<%= form_with(model: record) do |form| %>
+  <% if record.errors.any? %>
+    <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4 ">
+      <h2 class="font-bold mb-2">
+      <%= pluralize(record.errors.count, "error") %> でエラーが発生しました:</h2>
+      <ul class="list-disc list-inside">
+        <% record.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class= "mb-2">
+    <%= form.label :date, "日付", class: "block font-medium mb-1" %>
+    <%= form.date_field :date, class:" border rounded px-3 py-2 " %>
+  </div>
+
+  <div class= "mb-2">
+    <%= form.label :snack_name, "お菓子の名前", class: "block font-medium mb-1"  %>
+    <%= form.text_field :snack_name, class:"border rounded px-3 py-2 " , placeholder: "例：ポテトチップス" %>
+  </div>
+
+  <div class= "mb-2">
+    <%= form.label :amount, "食べた量(感覚)", class: "block font-medium mb-1"  %>
+    <%= form.select :amount,
+    options_for_select([
+      ['食べていないに等しい', Record::AMOUNTS[:small]],
+      ['普通', Record::AMOUNTS[:medium]],
+      ['食べ過ぎ', Record::AMOUNTS[:large]]  
+    ],@record.amount),
+    {},
+    class:"border rounded px-3 py-2 " %>
+  </div>
+
+  <div class= "mb-2">
+    <%= form.label :memo, "メモ", class: "block font-medium mb-1" %>
+    <%= form.text_area :memo, class: "border rounded px-3 py-2" , placeholder: "食べた時間等の備考を入力" %>
+  </div>
+
+  <div class= "mt-6">
+    <%= form.submit "記録する",class: " bg-orange-400 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded transition duration-200" %>
+  </div>
+<% end %>
+
+</div>

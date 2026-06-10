@@ -1,0 +1,21 @@
+<div class= "mb-6">
+ <h1 class="text-3xl font-bold bg-blue-200 w-fit px-2 py-1 rounded",>記録の詳細</h1>
+</div>
+
+<div class = "mb-6">
+ <p class="mb-1">日付:<%= @record.date %></p>
+ <p class="mb-1">お菓子の名前:<%= @record.snack_name %></p>
+ <p class="mb-1">メモ:<%= @record.memo %></p>
+</div>
+
+<div class ="mb-2">
+<%= link_to '編集に進む', edit_record_path(@record),class: "text-gray-600 hover:text-black" %>
+</div>
+
+<div class ="mb-2">
+<%= link_to '一覧に戻る', records_path, class:"text-gray-600 hover:text-black" %>
+</div>
+
+<div>
+<%= link_to "カレンダーに戻る", calendar_records_path, class:"text-gray-600 hover:text-black" %>
+</div>

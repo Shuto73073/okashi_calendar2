@@ -1,0 +1,15 @@
+<div class= "mb-6">
+ <h1 class="text-3xl font-bold bg-orange-200 w-fit px-2 py-1 rounded",>新しい記録</h1>
+</div>
+
+<div class="mb-6">
+ <%= render "form", record: @record %>
+</div>
+
+<div class="mb-2">
+ <%= link_to "一覧に戻る", records_path, class:"text-gray-600 hover:text-black" %>
+</div>
+
+<div>
+  <%= link_to "カレンダーに戻る", calendar_records_path, class:"text-gray-600 hover:text-black" %>
+</div>

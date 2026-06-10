@@ -1,0 +1,23 @@
+<div class= "mb-6">
+ <h1 class="text-3xl font-bold bg-gray-300 ",>ログイン</h1>
+</div>
+
+<%= form_with url: login_path, local: true do |form| %>
+  <div class= "mb-2">
+    <%= form.label :name, "ユーザー名" %>
+    <%= form.text_field :name, class:" border rounded px-2 py-1 " %>
+  </div>
+  
+  <div class= "mb-2">
+    <%= form.label :password, "パスワード" %>
+    <%= form.password_field :password, class:" border rounded px-2 py-1 " %>
+  </div>
+  
+  <div class= "mt-6">
+    <%= form.submit "ログイン" , class: " bg-blue-400 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded transition duration-200" %>
+  </div>
+<% end %>
+
+<div class="mt-6">
+ <%= link_to "ユーザー登録ページへ", signup_path, class:"text-gray-600 hover:text-gray-800" %>
+</div>

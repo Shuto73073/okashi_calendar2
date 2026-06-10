@@ -1,0 +1,43 @@
+<div class=" max-w-6xl mx-auto">
+  <h1 class="text-3xl font-bold mb-6 bg-green-200 w-fit px-2 py-1 rounded">お菓子記録カレンダー</h1>
+
+<!-- 月の切り替えナビゲーション -->
+<div class="flex justify-between items-center p-4 bg-gray-100 rounded-lg">
+  <%= link_to "◀ 前月", calendar_records_path(start_date: (@date - 1.month).strftime("%Y-%m-%d")),class: "bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded" %>
+  <span class="current-month text-xl font-semibold"><%= @date.strftime("%Y年%m月") %></span>
+  <%= link_to "次月 ▶", calendar_records_path(start_date: (@date + 1.month).strftime("%Y-%m-%d")),class: "bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded" %>
+</div>
+
+<!-- カレンダー表示 -->
+<%= month_calendar(events: @records,previous_link: false, next_link: false) do |date, records| %>
+  <div class="calendar-day <%= date.strftime('%A').downcase %>">
+    <%= link_to date.day, new_record_path(date: date), class: "date-link" %>
+    <% records.each do |record| %>
+      <div class="record-item <%= record.amount_class %> ">
+        <%= link_to record.snack_name, record_path(record) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="mb-4 p-4 bg-white rounded-lg shadow">
+  <h3 class="text-base font-medium underline underline-offset-3 mb-2">表示色の凡例(食べた量の感覚)</h3>
+  <div class="flex gap-4">
+    <div class="flex items-center">
+      <div class="w-6 h-6 legend-small border border-gray-400 rounded mr-2"></div>
+      <span>食べていないに等しい</span>
+    </div>
+    <div class="flex items-center">
+      <div class="w-6 h-6 legend-medium border border-gray-400 rounded mr-2"></div>
+      <span>普通</span>
+    </div>
+    <div class="flex items-center">
+      <div class="w-6 h-6 legend-large border border-gray-400 rounded mr-2"></div>
+      <span>食べ過ぎ</span>
+    </div>
+  </div>
+</div>
+
+
+<%= link_to '一覧表示に切り替え', records_path, class: "inline-block bg-gray-400 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded mb-4 mr-4 transition duration-200" %>
+<%= link_to '新しい記録を追加', new_record_path, class: "inline-block bg-orange-400 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded transition duration-200 mt-6"  %>

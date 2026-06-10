@@ -1,0 +1,38 @@
+<div class= "mb-6">
+ <h1 class="text-3xl font-bold bg-gray-200 w-fit px-2 py-1 rounded",>お菓子記録一覧</h1>
+</div>
+
+<div class="overflow-x-auto mb-6">
+ <table class="min-w-full bg-white border border-grey-300 ">
+  <thead class="bg-gray-100">
+   <tr>
+    <th class="px-6 py-3 border-b border-r text-left text-sm font-semibold text-gray-700">日付</th>
+    <th class="px-6 py-3 border-b border-r text-left text-sm font-semibold text-gray-700">お菓子の名前</th>
+    <th class="px-6 py-3 border-b border-r text-left text-sm font-semibold text-gray-700">食べた量(感覚)</th>
+    <th class="px-6 py-3 border-b border-r text-left text-sm font-semibold text-gray-700">メモ</th>
+    <th class="px-6 py-3 border-b text-left text-sm font-semibold text-gray-700">操作</th>
+    <th></th>
+   </tr>
+  </thead>
+  <tbody>
+   <% @records.each do |record| %>
+    <tr class="hover:bg-gray-50">
+     <td class="px-6 py-2 border-b border-r text-sm"><%= record.date %></td>
+     <td class="px-6 py-2 border-b border-r text-sm"><%= record.snack_name %></td>
+     <td class="px-6 py-2 border-b border-r text-sm"><%= record.amount_label %></td>
+     <td class="px-6 py-2 border-b border-r text-sm"><%= record.memo %></td>
+     <td class="px-6 py-2 border-b text-sm">
+      <div class="flex gap-2">
+       <%= link_to "詳細", record_path(record), class: "text-blue-600 hover:text-blue-800" %>
+       <%= link_to "編集", edit_record_path(record), class: "text-purple-600 hover:text-purple-800" %>
+       <%= link_to "削除", record_path(record), data: { turbo_method: :delete,turbo_confirm: '本当に削除しますか？'}, class: "text-red-600 hover:text-red-800" %>
+      </div>
+     </td>
+    </tr>
+  <% end %>
+ </tbody>
+ </table>
+</div>
+
+<%= link_to 'カレンダー表示に切り替え', calendar_records_path, class: "inline-block bg-green-400 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded mr-4 transition duration-200" %>
+<%= link_to "新しい記録を追加", new_record_path, { class: "inline-block bg-orange-400 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded transition duration-200" }  %>

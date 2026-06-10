@@ -1,0 +1,124 @@
+.simple-calendar {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.simple-calendar table {
+  width: 100% ;
+  table-layout: fixed;  
+}
+
+.simple-calendar th {
+  border: 1px solid #ddd;
+  padding: 5px;  
+  height: 70px;  
+}
+
+.simple-calendar td {
+  border: 1px solid #ddd;
+  padding: 5px;
+  vertical-align: top;
+  height: 100px;
+}
+
+.calendar-day {
+  height: 100%;
+  overflow-y: auto;  /* 内容が多い場合はスクロール */
+}
+
+
+.simple-calendar .today  {
+  background-color: #fffacd;
+}
+
+.simple-calendar .prev-month a,
+.simple-calendar .next-month a{
+  color: #ccc !important; 
+}
+
+.calendar-day .date-link {
+  display: block;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.calendar-day .date-link:hover {
+  color: #ea6a0f;
+}
+
+.calendar-day .record-item {
+  display: inline-block;
+  padding: 3px;
+  margin: 2px 0;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* カレンダーのヘッダー部分を非表示 */
+.simple-calendar .calendar-heading {
+  display: none !important;
+}
+
+/* カレンダーのヘッダー（曜日） */
+.simple-calendar th {
+  text-align: center;
+  font-weight: bold;
+  padding: 0.5rem;
+  background-color: #f3f4f6;
+}
+
+/* 日曜日のヘッダーを赤色 */
+.simple-calendar th:first-child {
+  color: #dc2626;
+}
+
+/* 土曜日のヘッダーを青色 */
+.simple-calendar th:last-child {
+  color: #2563eb;
+}
+
+/* 日曜日のセル（日付）を赤色 */
+.calendar-day.sunday .date-link {
+  color: #dc2626;
+}
+
+.calendar-day.sunday .date-link:hover {
+  color: #ea6a0f;
+}
+
+/* 土曜日のセル（日付）を青色 */
+.calendar-day.saturday .date-link {
+  color: #2563eb;
+}
+
+.calendar-day.saturday .date-link:hover {
+  color: #ea6a0f;
+}
+
+.record-item.amount-small {
+  background-color: #f8dbdb; 
+}
+
+.record-item.amount-medium {
+  background-color: #f37979; 
+}
+
+.record-item.amount-large {
+  background-color: #e72e2e;
+}
+
+/* 凡例用のクラスを追加 */
+.legend-small {
+  background-color: #f8dbdb;
+}
+
+.legend-medium {
+  background-color: #f37979;
+}
+
+.legend-large {
+  background-color: #e72e2e;
+}
