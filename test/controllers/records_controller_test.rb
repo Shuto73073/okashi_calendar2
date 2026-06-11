@@ -4,16 +4,14 @@ class RecordsControllerTest < ActionDispatch::IntegrationTest
   setup do
     # ユーザーを作成
     @user = User.create!(name: "Test User", password: "password")
-    
     # ログイン処理
     post login_url, params: { name: @user.name, password: "password" }
-    
     # テスト用のレコードを作成
     @record = Record.create!(
-      date: Time.current,           
-      snack_name: "Test Snack",     
+      date: Time.current,
+      snack_name: "Test Snack",
       amount: Record::AMOUNTS[:medium],
-      user: @user                   
+      user: @user
     )
   end
 
