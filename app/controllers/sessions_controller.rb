@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:name])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to records_path, notice: "ログインしました"
+      redirect_to calendar_records_path, notice: "ログインしました"
     else
       flash.now[:alert] = "ユーザー名またはパスワードが正しくありません"
       render :new, status: :unprocessable_entity
