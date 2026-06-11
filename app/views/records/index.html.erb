@@ -3,24 +3,28 @@
 </div>
 
 <div class="overflow-x-auto mb-6">
- <table class="min-w-full bg-white border border-grey-300 ">
+ <table class="w-full bg-white border border-grey-300 table-fixed ">
   <thead class="bg-gray-100">
    <tr>
-    <th class="px-6 py-3 border-b border-r text-left text-sm font-semibold text-gray-700">日付</th>
-    <th class="px-6 py-3 border-b border-r text-left text-sm font-semibold text-gray-700">お菓子の名前</th>
-    <th class="px-6 py-3 border-b border-r text-left text-sm font-semibold text-gray-700">食べた量(感覚)</th>
-    <th class="px-6 py-3 border-b border-r text-left text-sm font-semibold text-gray-700">メモ</th>
-    <th class="px-6 py-3 border-b text-left text-sm font-semibold text-gray-700">操作</th>
-    <th></th>
+    <th class="w-36 px-6 py-3 border-b border-r text-center text-sm font-semibold text-gray-700 ">日付</th>
+    <th class="w-80 px-6 py-3 border-b border-r text-center text-sm font-semibold text-gray-700">お菓子の名前</th>
+    <th class="w-40 px-6 py-3 border-b border-r text-center text-sm font-semibold text-gray-700">食べた量(感覚)</th>
+    <th class="w-120 px-6 py-3 border-b border-r text-center text-sm font-semibold text-gray-700">メモ</th>
+    <th class="w-40 px-6 py-3 border-b text-center text-sm font-semibold text-gray-700">操作</th>
    </tr>
   </thead>
   <tbody>
    <% @records.each do |record| %>
     <tr class="hover:bg-gray-50">
-     <td class="px-6 py-2 border-b border-r text-sm"><%= record.date %></td>
-     <td class="px-6 py-2 border-b border-r text-sm"><%= record.snack_name %></td>
-     <td class="px-6 py-2 border-b border-r text-sm"><%= record.amount_label %></td>
-     <td class="px-6 py-2 border-b border-r text-sm"><%= record.memo %></td>
+     <td class="px-6 py-2 border-b border-r text-sm text-center"><%= record.date %></td>
+     <td class="px-6 py-2 border-b border-r text-sm">
+      <div class="truncate"><%= record.snack_name %></div>
+     </td>
+      
+     <td class="px-6 py-2 border-b border-r text-sm text-center"><%= record.amount_label %></td>
+     <td class="px-6 py-2 border-b border-r text-sm">
+      <div class="truncate"><%= record.memo %></div>
+     </td>
      <td class="px-6 py-2 border-b text-sm">
       <div class="flex gap-2">
        <%= link_to "詳細", record_path(record), class: "text-blue-600 hover:text-blue-800" %>

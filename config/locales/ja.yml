@@ -9,3 +9,26 @@ ja:
       - 木
       - 金
       - 土
+  
+  activerecord:
+    models:
+      user: ユーザー
+      record: 記録
+    attributes:
+      user:
+        name: 名前
+        password: パスワード
+        password_confirmation: パスワード（確認）
+      record:
+        date: 日付
+        snack_name: おやつ名
+        amount: 量
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+        blank: "を入力してください"
+        taken: "はすでに存在します"
+        too_short: "は%{count}文字以上で入力してください"
+        too_long: "は%{count}文字以内で入力してください"
+        inclusion: "は一覧にありません"
+        not_a_number: "は数値で入力してください"

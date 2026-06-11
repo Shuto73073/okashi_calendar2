@@ -12,7 +12,7 @@ class Record < ApplicationRecord
     def amount_label
       case amount
       when AMOUNTS[:small]
-        "食べていないに等しい"
+        "少しだけ"
       when AMOUNTS[:medium]
         "普通"
       when AMOUNTS[:large]
