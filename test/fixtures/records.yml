@@ -4,8 +4,10 @@ one:
   date: 2026-05-27
   snack_name: MyString
   memo: MyText
+  user: one
 
 two:
   date: 2026-05-27
   snack_name: MyString
   memo: MyText
+  user: two
