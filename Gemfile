@@ -58,4 +58,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "simple_calendar", "~>2.4"
+gem "simple_calendar", "~>3.1"
