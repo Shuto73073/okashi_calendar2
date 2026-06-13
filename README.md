@@ -1,24 +1,38 @@
-# README
+# お菓子カレンダー
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+日々食べたお菓子をカレンダーに記録できるアプリです。
 
-Things you may want to cover:
+## 公開URL
 
-* Ruby version
+https://okashi-calendar2.onrender.com
 
-* System dependencies
+## アプリを作った理由
 
-* Configuration
+食べたお菓子を可視化することで、ついお菓子を食べ過ぎてしまう自分を戒めるために作りました。
+食べた量(少しだけ・普通・食べ過ぎの３択)に合わせてカレンダー上の表示色を変更することにより、罪悪感も可視化できるようにしています。
 
-* Database creation
+## できること（機能一覧）
 
-* Database initialization
+・ユーザー登録・ログイン機能
+・お菓子の記録を追加・編集・削除
+・日付、食べた量、メモ（任意）を付けて管理
+・食べた量に合わせて、カレンダー上のお菓子名の表示色を変更
+・記録のカレンダー表示と一覧表示の切り替え
 
-* How to run the test suite
+## 使用した技術
 
-* Services (job queues, cache servers, search engines, etc.)
+### バックエンド
+- Ruby on Rails 8.1.3
 
-* Deployment instructions
+### フロントエンド
+- HTML/CSS
+- Tailwind CSS
 
-* ...
+### データベース
+- PostgreSQL
+
+### 開発環境
+- Docker
+
+### デプロイ
+- Render
